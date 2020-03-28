@@ -39,10 +39,8 @@ install:
   - cmd: set "CUTTER_DEPS_DIR=%APPVEYOR_BUILD_FOLDER%\cutter-deps"
   - cmd: set "PATH=%CD%;%PYTHON%;%PATH%"
   - cmd: call "%VSVARSALLPATH%" %ARCH%
-  - cmd: if "%USE_APPVEYOR_QT%" == "false" (
-             set QTPATH=%APPVEYOR_BUILD_FOLDER%\%QTPATH%
-             set "PATH=%QTPATH%\bin;%PATH%"
-         ) else ( set "PATH=%QTPATH%\bin;%PATH%" )
+  - cmd: if "%USE_APPVEYOR_QT%" == "false" ( set QTPATH="%APPVEYOR_BUILD_FOLDER%\%QTPATH%" )
+  - cmd: set "PATH=%QTPATH%\bin;%PATH%"
   - cmd: echo %PATH%
   - cmd: python -m pip install meson
   - cmd: powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; wget %NINJA_URL% -OutFile ninja.zip; Expand-Archive .\ninja.zip -DestinationPath ."
