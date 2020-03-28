@@ -10,6 +10,8 @@ configuration:
 environment:
   NINJA_URL: https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-win.zip
   VSVARSALLPATH: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat'
+  QTPATH: 'cutter-deps\qt'
+  USE_APPVEYOR_QT: 'false'
   matrix:
     # Build: qmake vs2017 x86 shared
     #- ARCH: x86
@@ -23,16 +25,12 @@ environment:
       PYTHON: 'C:\Python36-x64'
       QMAKE: 1
       DEPLOY: true
-      QTPATH: 'qt'
-      USE_APPVEYOR_QT: 'false'
     # Build: meson ninja x64 static
     - ARCH: x64
       PYTHON: 'C:\Python36-x64'
       MESON: 1
       BACKEND: ninja
       DEPLOY: false
-      QTPATH: 'qt'
-      USE_APPVEYOR_QT: 'false'
 
 install:
   - cmd: if defined QMAKE ( git clone --depth 1 --recurse-submodules https://github.com/radareorg/r2ghidra-dec.git %APPVEYOR_BUILD_FOLDER%/r2ghidra-dec )
@@ -45,6 +43,7 @@ install:
              set QTPATH=%APPVEYOR_BUILD_FOLDER%\%QTPATH%
              set "PATH=%QTPATH%\bin;%PATH%"
          ) else ( set "PATH=%QTPATH%\bin;%PATH%" )
+  - cmd: echo %PATH%
   - cmd: python -m pip install meson
   - cmd: powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; wget %NINJA_URL% -OutFile ninja.zip; Expand-Archive .\ninja.zip -DestinationPath ."
   # Artifacts
