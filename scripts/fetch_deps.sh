@@ -4,7 +4,7 @@ cd $(dirname "${BASH_SOURCE[0]}")/..
 mkdir -p cutter-deps && cd cutter-deps
 
 LINUX_FILE="cutter-deps-linux.tar.gz"
-LINUX_MD5=e9013d9d78587789aad23db22137cc36
+LINUX_MD5=dceee1b643d3891bcfe2c06be59ff267
 LINUX_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-linux.tar.gz
 
 MACOS_FILE="cutter-deps-macos.tar.gz"
