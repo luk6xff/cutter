@@ -12,7 +12,7 @@ MACOS_MD5=8f55dfeb8fb9ed98f7ccc21fbc134582
 MACOS_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-macos.tar.gz
 
 WIN_FILE="cutter-deps-win.tar.gz"
-WIN_MD5=701c512bd0fb404a518ec89caab62a6e
+WIN_MD5=793549bb6fd819e5e62bf7121dfc281b
 WIN_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-win.tar.gz
 
 if [ "$OS" == "Windows_NT" ]; then
