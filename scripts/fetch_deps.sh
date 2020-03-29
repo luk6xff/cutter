@@ -4,15 +4,15 @@ cd $(dirname "${BASH_SOURCE[0]}")/..
 mkdir -p cutter-deps && cd cutter-deps
 
 LINUX_FILE="cutter-deps-linux.tar.gz"
-LINUX_MD5=e9013d9d78587789aad23db22137cc36
+LINUX_MD5=99447697f6a9d39ef98b61287cdbc149
 LINUX_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-linux.tar.gz
 
 MACOS_FILE="cutter-deps-macos.tar.gz"
-MACOS_MD5=8f55dfeb8fb9ed98f7ccc21fbc134582
+MACOS_MD5=5b1e44f9d07de2be47023270091fcfa5
 MACOS_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-macos.tar.gz
 
 WIN_FILE="cutter-deps-win.tar.gz"
-WIN_MD5=701c512bd0fb404a518ec89caab62a6e
+WIN_MD5=b86947938eaf4bc46eab79e53c114778
 WIN_URL=https://github.com/radareorg/cutter-deps/releases/download/v11/cutter-deps-win.tar.gz
 
 if [ "$OS" == "Windows_NT" ]; then
